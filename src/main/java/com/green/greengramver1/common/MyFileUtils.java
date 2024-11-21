@@ -58,7 +58,6 @@ public class MyFileUtils {
     }
 }
 
-
 class test {
     public static void main(String[] args) {
         MyFileUtils myFileUtils = new MyFileUtils("C:\\temp");

@@ -28,6 +28,9 @@ public class UserController {
     public ResultResponse<Integer> signUp(@RequestPart UserInsReq p, @RequestPart(required = false) MultipartFile pic) {
         log.info("UserInsReq: {}, file: {}", p, pic != null ? pic.getOriginalFilename() : null);
         int result = service.postSignUp(pic, p);
-        return ResultResponse.<Integer>builder().resultMessage("회원가입 완료").resultData(result).build();
+        return ResultResponse.<Integer>builder()
+                .resultMessage("회원가입 완료")
+                .resultData(result)
+                .build();
     }
 }

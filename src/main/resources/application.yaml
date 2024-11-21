@@ -1,6 +1,6 @@
 #custom property(절대 경로 Absolute Path)
 file:
-  directory: D:/SGSG/download/greengram_ver1
+  directory: D:/SGSG/download/green_gram_ver1
 
 mybatis:
   mapper-locations: xml/**/*.xml

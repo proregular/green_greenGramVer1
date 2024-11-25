@@ -26,7 +26,11 @@ public class MyFileUtils {
      //디렉토리 생성
      public String makeFolders(String path) {
          File file = new File(uploadPath, path);
-         file.mkdirs();
+
+         if(!file.exists()) {
+             file.mkdirs();
+         }
+
          return file.getAbsolutePath();
      }
 

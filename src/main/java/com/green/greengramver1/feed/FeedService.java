@@ -1,9 +1,7 @@
 package com.green.greengramver1.feed;
 
 import com.green.greengramver1.common.MyFileUtils;
-import com.green.greengramver1.feed.model.FeedPicDto;
-import com.green.greengramver1.feed.model.FeedPostReq;
-import com.green.greengramver1.feed.model.FeedPostRes;
+import com.green.greengramver1.feed.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -46,9 +44,7 @@ public class FeedService {
             } catch (IOException e) {
                 log.error(e.getMessage());
             }
-
             feedPicDto.setPic(savedPicName);
-
             picStr.add(savedPicName);
 
             mapper.insFeedPic(feedPicDto);
@@ -60,5 +56,16 @@ public class FeedService {
         res.setPics(picStr);
 
         return res;
+    }
+
+    public List<FeedGetRes> getFeedList(FeedGetReq p) {
+        List<FeedGetRes> list = mapper.selFeedList(p);
+
+        for(FeedGetRes res : list) {
+            List<String> pics = mapper.selFeedPicList(res.getFeedId());
+            res.setPics(pics);
+        }
+
+        return list;
     }
 }

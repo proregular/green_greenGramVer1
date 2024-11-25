@@ -22,7 +22,7 @@ public class UserController {
     /*
         파일(MultipartFile) + Data
         파일 업로드시에는 @RequestBody를 사용할 수 없다.
-        @RequestPart애노테이션을 사용해야 한다.
+        @RequestPart애노테이션을 사용해야 한다. (required=true)가 기본값
      */
 
     @PostMapping("sign-up")

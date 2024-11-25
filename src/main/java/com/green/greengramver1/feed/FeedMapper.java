@@ -1,11 +1,20 @@
 package com.green.greengramver1.feed;
 
+import com.green.greengramver1.feed.model.FeedGetReq;
+import com.green.greengramver1.feed.model.FeedGetRes;
 import com.green.greengramver1.feed.model.FeedPicDto;
 import com.green.greengramver1.feed.model.FeedPostReq;
+import com.green.greengramver1.user.model.UserSignUpReq;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface FeedMapper {
     int insFeed(FeedPostReq p);
+    List<FeedGetRes> selFeedList(FeedGetReq p);
+
+
     int insFeedPic(FeedPicDto p);
+    List<String> selFeedPicList(long feedId);
 }

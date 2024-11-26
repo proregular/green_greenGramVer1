@@ -8,6 +8,7 @@ import com.green.greengramver1.feed.model.FeedPostRes;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,7 +36,7 @@ public class FeedController {
         QueryString - URL에 KEY, VALUE값을 포함한다.
     */
     @GetMapping
-    public ResultResponse<List<FeedGetRes>> getFeedList(@ModelAttribute FeedGetReq p) {
+    public ResultResponse<List<FeedGetRes>> getFeedList(@ParameterObject @ModelAttribute FeedGetReq p) {
         log.info("p: {}", p);
 
         List<FeedGetRes> list = service.getFeedList(p);
